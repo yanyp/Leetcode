@@ -28,16 +28,14 @@ public:
 			else if (nums.at(i) + nums.at(j) == target)
 			{
 				auto it = find(nums_tmp.begin(), nums_tmp.end(), nums.at(i));
-				cout << *it << endl;			
 				auto it2 = find(nums_tmp.begin(), nums_tmp.end(), nums.at(j));
-				cout << *it2 << endl;
 				
 				if(*it == *it2)		// repeat element
 					it2 = find(it2+1, nums_tmp.end(), nums.at(j));
 				
+                // output order
 				int index1 = it - nums_tmp.begin() + 1;
 				int index2 = it2 - nums_tmp.begin() + 1;
-				
 				output.push_back(min(index1, index2));
 				output.push_back(max(index1, index2));
 				break;
